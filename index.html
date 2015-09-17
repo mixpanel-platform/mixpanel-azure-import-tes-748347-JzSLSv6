@@ -164,18 +164,18 @@
               var events = [];
               if (event != node.name) {
                 /* Build a list of promises */
-                selector_str = '(string(properties["Last Event"]) == "' + node.name + '")'
+                selector_str = '(string(properties["last_event"]) == "' + node.name + '")'
                 
                 //'(string(properties["Last Event"]) == "' + node.name + '")'
                 events.push({'event': event, 'selector': selector_str });
                 if (parent) {
-                  selector_str = '(string(properties["Last Event"]) == "' + parent.name + '")'
+                  selector_str = '(string(properties["last_event"]) == "' + parent.name + '")'
                 }
                 events.push({'event': node.name, 'selector': selector_str});
                 
                 while (parent) {
                   if(parent.parent){                
-                    selector_str = '(string(properties["Last Event"]) == "' + parent.parent.name + '")'
+                    selector_str = '(string(properties["last_event"]) == "' + parent.parent.name + '")'
                   }
                   events.push({'event': parent.name, 'selector': selector_str});
                   parent = parent.parent
